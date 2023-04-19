@@ -34,6 +34,16 @@ public ResponseEntity<Object> updateBook(@PathVariable int id, @RequestBody Stri
         return ResponseEntity.noContent();
         }*/
 
+/*@GetMapping("/books/{id}")
+public ResponseEntity<Object> getBook(@PathVariable long id) {
+        return ResponseEntity.ok(...);
+        }*/
+
+/*@GetMapping("/books")
+public ResponseEntity<Object> getAllBooks(@RequestParam String title) {
+        return ...;
+        }*/
+
 
 //definieer controller
 @RestController
@@ -47,9 +57,10 @@ public class TelevisionController {
     }
 
 
+/*    uitleg: @PathVariable is een annotatie die aangeeft dat de waarde van de variabele uit de URL-path moet worden opgehaald. In dit voorbeeld wordt de waarde van de id-variabele opgehaald uit het pad van de URL (/televisions/{id}). Door @PathVariable("id") te gebruiken, vertel je Spring MVC om de waarde van id uit de URL te binden aan de int id parameter van de getOneTelevision methode.*/
     @GetMapping("/televisions/{id}")
-    public ResponseEntity<String> getOneTelevision(@PathVariable String id){
-        return ResponseEntity.ok("television-id");
+    public ResponseEntity<String> getOneTelevision(@PathVariable ("id") int id){
+        return ResponseEntity.ok("television-id" + id);
     }
 
 
